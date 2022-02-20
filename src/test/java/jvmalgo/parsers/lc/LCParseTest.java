@@ -1,5 +1,6 @@
-package com.deboder.algo.parsers.lc;
+package jvmalgo.parsers.lc;
 
+import jvmalgo.parsers.lc.LCParse;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

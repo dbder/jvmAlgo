@@ -1,4 +1,4 @@
-package com.deboder.algo.datastructures.lc;
+package jvmalgo.datastructures.lc;
 
 public class TreeNode {
     public int val;

@@ -1,4 +1,4 @@
-package com.deboder.algo.parsers.lc;
+package jvmalgo.parsers.lc;
 
 import java.util.Arrays;
 
