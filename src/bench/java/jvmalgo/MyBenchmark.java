@@ -49,6 +49,7 @@ public class MyBenchmark {
     @Fork(value = 1, jvmArgs = {"-Xms2G", "-Xmx2G"}, warmups = 1)
     public void testMethod1(Blackhole blackhole) {
 
+
         String s = " start";
         for (int x = 0; x < 100; x++) {
             s = gets(s);
