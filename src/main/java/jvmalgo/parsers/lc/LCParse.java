@@ -1,6 +1,7 @@
 package jvmalgo.parsers.lc;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class LCParse {
 
@@ -15,5 +16,8 @@ public class LCParse {
                 .mapToInt(Integer::parseInt)
                 .toArray();
     }
+
+
+
 
 }
