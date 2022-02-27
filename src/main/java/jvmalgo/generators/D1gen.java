@@ -3,11 +3,14 @@ package jvmalgo.generators;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
 public record D1gen() {
+
+    static Random rnd = new Random();
 
     /**
      * Return List for every count spread per digit.
@@ -40,6 +43,23 @@ public record D1gen() {
      */
     public static List<Integer> createSequence(int start, int end) {
         return Stream.iterate(start, n -> n <= end, n -> n + 1).collect(toList());
+    }
+
+    /**
+     * create list of fixed size with random items in a given range.
+     * <p>
+     * e.g. 5, 10 ,10  could result in: [11,10,15,20,17]
+     *
+     * @param n     size of result array
+     * @param start lower bound of item
+     * @param end   upper bound of item
+     */
+    public static List<Integer> nRandomFromInRangeInclusive(int n, int start, int end) {
+        return Stream.iterate(0, i -> i + 1)
+                .limit(n)
+                .map(i -> rnd.nextInt(end - start + 1))
+                .map(i -> i + start)
+                .collect(toList());
     }
 
 }
