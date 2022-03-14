@@ -3,6 +3,7 @@ package jvmalgo.generators;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -42,4 +43,10 @@ public record D1gen() {
         return Stream.iterate(start, n -> n <= end, n -> n + 1).collect(toList());
     }
 
+    static final Random rnd = new Random();
+
+
+    public static List<Integer> createOnesAndZeroRandom(int amount, int onein) {
+        return Stream.iterate(1, n -> n <= amount, n -> n + 1).map(i -> rnd.nextInt(onein) == 1 ? 1 : 0).collect(toList());
+    }
 }
