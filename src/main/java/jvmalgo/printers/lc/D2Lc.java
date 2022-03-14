@@ -5,9 +5,9 @@ import jvmalgo.JvmAlgoException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class D1Lc {
+public class D2Lc {
 
-    private D1Lc() {
+    private D2Lc() {
         throw new JvmAlgoException("may not instantiate Util");
     }
 
@@ -17,7 +17,8 @@ public class D1Lc {
      * [2,4,1]
      */
     public static void printLists(List<List<Integer>> lists) {
-        lists.forEach(D1Lc::printList);
+
+        System.out.println(lists.stream().map(List::toString).collect(Collectors.joining(",","[","]")));
     }
 
 

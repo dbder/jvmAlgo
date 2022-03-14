@@ -62,4 +62,7 @@ public record D1gen() {
                 .collect(toList());
     }
 
+    public static List<Integer> createOnesAndZeroRandom(int amount, int onein) {
+        return Stream.iterate(1, n -> n <= amount, n -> n + 1).map(i -> rnd.nextInt(onein) == 1 ? 1 : 0).collect(toList());
+    }
 }
