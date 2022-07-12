@@ -1,6 +1,7 @@
 package jvmalgo.printers.lc;
 
 import jvmalgo.generators.D1gen;
+import jvmalgo.generators.D2gen;
 import org.junit.jupiter.api.Test;
 
 import static jvmalgo.printers.lc.D1Lc.printLists;
@@ -15,5 +16,6 @@ class D1LcTest {
     void lcPrintTestCount() {
         printLists(D1gen.spreadCount(2222, 3333));
     }
+
 
 }
