@@ -31,7 +31,7 @@ public class RandomIntArraySortBenchBase {
             IntStream
                     .of(
                             Arrays
-                                    .stream(new String[] {
+                                    .stream(new String[]{
                                             SIZE_10,
                                             SIZE_100,
                                             SIZE_1000,
@@ -48,10 +48,14 @@ public class RandomIntArraySortBenchBase {
                     .toArray(int[][]::new);
 
     // params given to the test
-    @Param({SIZE_10, SIZE_100, SIZE_1000, SIZE_10000, SIZE_100000})
+    @Param({
+            SIZE_10,
+            SIZE_100,
+            SIZE_1000,
+            SIZE_10000,
+            SIZE_100000
+    })
     protected int arraySize;
-
-
 
 
     // convert from arraysize to it's index in 'arrays'
