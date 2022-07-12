@@ -1,6 +1,5 @@
 package jvmalgo.algos.sorting;
 
-import java.util.Arrays;
 import java.util.function.Consumer;
 
 public class SelectionSort {
@@ -17,10 +16,4 @@ public class SelectionSort {
             }
         }
     };
-
-    public static void main(String[] args) {
-        var list = new int[]{5, 1, 2, 4, 5, 1};
-        algo.accept(list);
-        System.out.println(Arrays.toString(list));
-    }
 }
