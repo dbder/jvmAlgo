@@ -8,7 +8,7 @@ import org.openjdk.jmh.infra.Blackhole;
 
 import java.util.Arrays;
 
-public class SortBench extends RandomIntArraySortBenchBase {
+public class RandomIntArraySortBench extends RandomIntArraySortBenchBase {
 
     @Benchmark
     public void selection(Blackhole bh) {
