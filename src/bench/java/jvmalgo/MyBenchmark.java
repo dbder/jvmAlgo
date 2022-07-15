@@ -33,58 +33,63 @@ package jvmalgo;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
+import org.openjdk.jmh.profile.GCProfiler;
+import org.openjdk.jmh.results.RunResult;
+import org.openjdk.jmh.results.format.ResultFormatType;
+import org.openjdk.jmh.runner.Runner;
+import org.openjdk.jmh.runner.RunnerException;
+import org.openjdk.jmh.runner.options.Options;
+import org.openjdk.jmh.runner.options.OptionsBuilder;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.concurrent.TimeUnit;
+
 
 /**
  * Jhm try out.
  */
+@State(Scope.Thread)
+//@BenchmarkMode(Mode.AverageTime)
+//@OutputTimeUnit(TimeUnit.MILLISECONDS)
+//@Warmup(iterations = 1)
+//@Measurement(iterations = 1)
+//@Fork(value = 1, jvmArgs = {"-Xms2G", "-Xmx2G"}, warmups = 0)
 public class MyBenchmark {
 
+
     @Benchmark
-    @BenchmarkMode(Mode.AverageTime)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    @Warmup(iterations = 1)
-    @Measurement(iterations = 1)
-    @Fork(value = 1, jvmArgs = {"-Xms2G", "-Xmx2G"}, warmups = 1)
+    @BenchmarkMode(Mode.SingleShotTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    @Fork(1)
     public void testMethod1(Blackhole blackhole) {
 
 
-        String s = " start";
-        for (int x = 0; x < 100; x++) {
-            s = gets(s);
-        }
-
-        blackhole.consume(s);
+        blackhole.consume(blackhole);
     }
 
 
-    @Benchmark
-    @BenchmarkMode(Mode.AverageTime)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    @Warmup(iterations = 1)
-    @Measurement(iterations = 1)
-    @Fork(value = 1, jvmArgs = {"-Xms2G", "-Xmx2G"}, warmups = 1)
-    public void testMethod2(Blackhole blackhole) {
+    public static void main(String[] args) throws RunnerException, IOException {
+        new File("target/jmh-report/").mkdirs();
+        Options opt = new OptionsBuilder()
+                .include(MyBenchmark.class.getName())
+                .warmupIterations(2)
+                .measurementIterations(10)
+                .mode(Mode.AverageTime)
+                .timeUnit(TimeUnit.MILLISECONDS)
+                .addProfiler(GCProfiler.class)
+                .jvmArgs("-server", "-XX:+UseG1GC", "-Xmx256m")
+                .shouldDoGC(true)
+                .forks(1)
+                .resultFormat(ResultFormatType.JSON)
+                .result("" + MyBenchmark.class.getSimpleName() + ".json")
+                .build();
 
-
-        StringBuilder sb = new StringBuilder(" start");
-        for (int x = 0; x < 100; x++) {
-            gets(sb);
-        }
-        blackhole.consume(sb.toString());
-
-        // This is a demo/sample template for building your JMH benchmarks. Edit as needed.
-        // Put your benchmark code here.
+        new Runner(opt).run();
     }
 
-
-    String gets(String s) {
-        return s + "hahah";
-    }
-
-    void gets(StringBuilder s) {
-        s.append("hahah");
-    }
 
 }
