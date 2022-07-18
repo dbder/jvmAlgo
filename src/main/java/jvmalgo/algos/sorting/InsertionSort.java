@@ -2,6 +2,9 @@ package jvmalgo.algos.sorting;
 
 import java.util.function.Consumer;
 
+/**
+ * stable
+ */
 public class InsertionSort {
 
 

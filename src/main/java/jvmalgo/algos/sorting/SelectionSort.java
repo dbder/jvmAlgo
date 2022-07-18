@@ -2,6 +2,9 @@ package jvmalgo.algos.sorting;
 
 import java.util.function.Consumer;
 
+/**
+ * not stable
+ */
 public class SelectionSort {
 
     public static Consumer<int[]> algo = list -> {
