@@ -31,7 +31,7 @@ public class RandomIntArraySortBenchTest extends IntArraySortBase {
 
     @Override
     public int getArraySize() {
-        return 0;
+        return arraySize;
     }
 
 }

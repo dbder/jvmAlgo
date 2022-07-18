@@ -1,9 +1,7 @@
 package jvmalgo.sorting.intarray;
 
 import jvmalgo.BenchCore;
-import jvmalgo.algos.sorting.InsertionSort;
-import jvmalgo.algos.sorting.SelectionSort;
-import jvmalgo.algos.sorting.ShellSort;
+import jvmalgo.algos.sorting.*;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
@@ -32,6 +30,16 @@ public abstract class IntArraySortBase extends BenchCore {
     @Benchmark
     public void javaArraysSort(Blackhole bh) {
         benchAlgo(Arrays::sort, bh);
+    }
+
+    @Benchmark
+    public void merge(Blackhole bh) {
+        benchAlgo(MergeSort.algo, bh);
+    }
+
+    @Benchmark
+    public void bottonUpMerge(Blackhole bh) {
+        benchAlgo(BottomUpMerge.algo, bh);
     }
 
 
