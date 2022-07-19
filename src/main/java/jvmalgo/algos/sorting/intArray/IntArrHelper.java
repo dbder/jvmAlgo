@@ -1,5 +1,7 @@
 package jvmalgo.algos.sorting.intArray;
 
+import jvmalgo.global.Global;
+
 import java.util.Arrays;
 
 public class IntArrHelper {
@@ -7,10 +9,11 @@ public class IntArrHelper {
 
     /**
      * Part of Mergesort algo.
-     *
+     * <p>
      * sorts range lo-hi by:
      * copying: lo-mid and mid+1-hi  to aux.
      * then it will copy that range back sorted ( stable )
+     *
      * @param aux Must be provided ( same size as a, or at least hi ).
      */
     static void merge(int[] a, int[] aux, int lo, int mid, int hi) {
@@ -44,5 +47,13 @@ public class IntArrHelper {
         int tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;
+    }
+
+    public static void shuffle(int[] arr) {
+        int N = arr.length;
+        for (int i = 1; i < N; i++) {
+            int j = Global.RND.nextInt(N);
+            swap(arr, i, j);
+        }
     }
 }

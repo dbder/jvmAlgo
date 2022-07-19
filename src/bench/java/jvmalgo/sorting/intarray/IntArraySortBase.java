@@ -40,6 +40,10 @@ public abstract class IntArraySortBase extends BenchCore {
     @Benchmark
     public void bottonUpMerge(Blackhole bh) {
         benchAlgo(BottomUpMerge.algo, bh);
+    }    @Benchmark
+
+    public void quick(Blackhole bh) {
+        benchAlgo(QuickSort.algo, bh);
     }
 
 
