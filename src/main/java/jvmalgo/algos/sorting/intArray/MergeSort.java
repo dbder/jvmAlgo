@@ -1,7 +1,10 @@
-package jvmalgo.algos.sorting;
+package jvmalgo.algos.sorting.intArray;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
+
+import static jvmalgo.algos.sorting.intArray.IntArrHelper.isSorted;
+import static jvmalgo.algos.sorting.intArray.IntArrHelper.merge;
 
 
 /**
@@ -16,12 +19,7 @@ public class MergeSort {
     };
 
 
-    static boolean isSorted(int[] arr) {
-        var clone = arr.clone();
-        Arrays.sort(clone);
-//        clone[0] =0;
-        return Arrays.compare(clone, arr) == 0;
-    }
+
 
 
     private static void sort(int[] a, int[] aux, int lo, int hi) {
@@ -35,19 +33,6 @@ public class MergeSort {
 //        }
     }
 
-    static void merge(int[] a, int[] aux, int lo, int mid, int hi) {
-        for (int k = lo; k <= hi; k++) {
-            aux[k] = a[k];
-        }
-        int i = lo, j = mid + 1;
-
-        for (int k = lo; k <= hi; k++) {
-            if (i > mid) a[k] = aux[j++];
-            else if (j > hi) a[k] = aux[i++];
-            else if (aux[j] < aux[i]) a[k] = aux[j++];
-            else a[k] = aux[i++];
-        }
-    }
 
 
 }

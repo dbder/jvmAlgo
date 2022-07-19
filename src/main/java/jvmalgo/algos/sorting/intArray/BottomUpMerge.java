@@ -1,12 +1,9 @@
-package jvmalgo.algos.sorting;
+package jvmalgo.algos.sorting.intArray;
 
-import jvmalgo.generators.IntArrGen;
-
-import java.util.Arrays;
 import java.util.function.Consumer;
 
-import static jvmalgo.algos.sorting.MergeSort.isSorted;
-import static jvmalgo.algos.sorting.MergeSort.merge;
+import static jvmalgo.algos.sorting.intArray.IntArrHelper.isSorted;
+import static jvmalgo.algos.sorting.intArray.IntArrHelper.merge;
 
 /**
  * stable if the merge is stable ( here the merge takes the left first on same, so stable )
@@ -26,12 +23,5 @@ public class BottomUpMerge {
 
         assert isSorted(arr) : "array is not sorted";
     };
-
-
-    public static void main(String[] args) {
-        var arr = IntArrGen.randomOfSize(1000);
-        algo.accept(arr);
-        Arrays.sort(arr);
-    }
 
 }

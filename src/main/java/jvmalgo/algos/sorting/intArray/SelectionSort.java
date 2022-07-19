@@ -1,4 +1,4 @@
-package jvmalgo.algos.sorting;
+package jvmalgo.algos.sorting.intArray;
 
 import java.util.function.Consumer;
 

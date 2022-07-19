@@ -1,7 +1,7 @@
 package jvmalgo.sorting.intarray;
 
 import jvmalgo.BenchCore;
-import jvmalgo.algos.sorting.*;
+import jvmalgo.algos.sorting.intArray.*;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
 
