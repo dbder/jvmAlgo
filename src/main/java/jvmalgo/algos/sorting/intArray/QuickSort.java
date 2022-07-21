@@ -49,6 +49,7 @@ public class QuickSort {
     public static void main(String[] args) {
         var arr = IntArrGen.sortedASCOfSize(20);
         algo.accept(arr);
+
     }
 
 }

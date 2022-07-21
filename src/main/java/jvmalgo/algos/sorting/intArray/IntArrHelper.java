@@ -49,6 +49,11 @@ public class IntArrHelper {
         arr[j] = tmp;
     }
 
+    /**
+     * Shuffles the array by:
+     * for every element, swap it with a random element before it or itself.
+     * - knuth shuffle or something
+     */
     public static void shuffle(int[] arr) {
         int N = arr.length;
         for (int i = 1; i < N; i++) {
