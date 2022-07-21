@@ -1,3 +1,5 @@
+package jvmalgo.study.princeton.algorithmsone.collinear;
+
 public class LineSegment {
     public LineSegment(Point p, Point q) {       // constructs the line segment between points p and q
     }

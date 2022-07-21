@@ -1,9 +1,14 @@
+package jvmalgo.study.princeton.algorithmsone.collinear;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Just the brute force one was enough to pass for 80%
+ */
 public class FastCollinearPoints {
 
     private final int nrSegments;

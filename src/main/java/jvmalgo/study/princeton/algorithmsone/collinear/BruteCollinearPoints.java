@@ -1,3 +1,5 @@
+package jvmalgo.study.princeton.algorithmsone.collinear;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
