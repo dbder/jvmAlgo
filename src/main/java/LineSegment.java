@@ -8,4 +8,7 @@ public class LineSegment {
     public String toString() {
         return "";
     }                    // string representation
+
+    public static void main(String[] args) {
+    }
 }

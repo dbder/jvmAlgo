@@ -1,30 +1,63 @@
+import edu.princeton.cs.algs4.StdDraw;
+
 import java.util.Comparator;
 
 public class Point implements Comparable<Point> {
-    
+
+    private final int x;     // x-coordinate of this point
+    private final int y;     // y-coordinate of this point
+
     public Point(int x, int y) {
-    }                         // constructs the point (x, y)
+        /* DO NOT MODIFY */
+        this.x = x;
+        this.y = y;
+    }
 
     public void draw() {
-    }// draws this point
+        /* DO NOT MODIFY */
+        StdDraw.point(x, y);
+    }
 
     public void drawTo(Point that) {
-    }                   // draws the line segment from this point to that point
-
-    public String toString() {
-        return "";
-    }                 // string representation
-
-    public int compareTo(Point that) {
-        return 0;
-    }     // compare two points by y-coordinates, breaking ties by x-coordinates
+        /* DO NOT MODIFY */
+        StdDraw.line(this.x, this.y, that.x, that.y);
+    }
 
     public double slopeTo(Point that) {
-        return 0;
-    }     // the slope between this point and that point
+        if (that == null) throw new NullPointerException();
+        if (x == that.x && y == that.y) return Double.NEGATIVE_INFINITY;
+        if (y == that.y) return 0;
+        if (x == that.x) return Double.POSITIVE_INFINITY;
+        return ((double) y - that.y) / ((double) x - that.x);
+    }
+
+    public int compareTo(Point that) {
+        if (that == null) throw new NullPointerException();
+        if (that.y == y) return x - that.x;
+        return y - that.y;
+    }
 
     public Comparator<Point> slopeOrder() {
-        return null;
+        return (a, b) -> {
+            if (a == null) throw new NullPointerException();
+            if (b == null) throw new NullPointerException();
+            double slope = a.slopeTo(b);
+            if (slope == Double.NEGATIVE_INFINITY || slope == Double.POSITIVE_INFINITY) return 0;
+            return Double.compare(slope, 0);
+        };
     }
-    // compare two points by slopes they make with this point
+
+    public String toString() {
+        /* DO NOT MODIFY */
+        return "(" + x + ", " + y + ")";
+    }
+
+    public static void main(String[] args) {
+//          * reflexive, where p and q have coordinates in [0, 500)
+//        Failed on trial 1 of 100000
+//        p                              = (421, 460)
+//        q                              = (442, 333)
+//        p.slopeOrder().compare(q, q))  = -1
+//        new Point()
+    }
 }
