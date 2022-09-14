@@ -50,6 +50,15 @@ public class IntArrHelper {
     }
 
     /**
+     * swaps item at index 'i' with item at index 'j'
+     */
+    public static void swap(Comparable<?>[] arr, int i, int j) {
+        Comparable tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
+
+    /**
      * Shuffles the array by:
      * for every element, swap it with a random element before it or itself.
      * - knuth shuffle or something

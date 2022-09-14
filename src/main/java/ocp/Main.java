@@ -1,2 +1,4 @@
-package ocp;public class Main {
+package ocp;
+
+public class Main {
 }
